@@ -17,6 +17,12 @@ body {
     grid-gap: 20px;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(4, auto);
+
+    /* Responsive opcion 2 */
+    grid-template-areas: "header header header"
+                         "contenido contenido sidebar"
+                         "widget-1 widget-2 sidebar"
+                         "footer footer footer"
 }
 
 .contenedor > div,
@@ -32,24 +38,30 @@ body {
 .contenedor .header{
     background: #12233E;
     color: #E9ECF4;
-    grid-column-start: 1;
-    grid-column-end: -1;
+    /* grid-column-start: 1;
+    grid-column-end: -1; */
+    /* Responsive opcion 2 */
+    grid-area: header;
 }
 
 .contenedor .contenido {
-    grid-column: span 2;
+    /* grid-column: span 2; */
+    /* Responsive opcion 2 */
+    grid-area: contenido;
 }
 
 .contenedor .sidebar {
-    grid-column: 3 / 4;
+    /* grid-column: 3 / 4;
+    grid-row: 2/4; */
     background: rgb(55, 215, 236);
     /* text-align: center; */
     display: flex;
     align-items: center;
     justify-content: center;
-    grid-row: 2/4;
     min-height: 100px;
     /* grid-row: span 2; */
+    /* Responsive opcion 2 */
+    grid-area: sidebar;
 }
 
 .contenedor .widget-1,
@@ -63,12 +75,25 @@ body {
     justify-content: center;
 }
 
+.contenedor .widget-1 {
+    /* Responsive opcion 2 */
+    grid: widget-1;
+}
+.contenedor .widget-2 {
+    /* Responsive opcion 2 */
+    grid-area: widget-2;
+}
+
 .contenedor .footer {
     background: #12283e;
     color: #fff;
-    grid-column: span 3;
+    /* grid-column: span 3; */
+    /* Responsive opcion 2 */
+    grid-area: footer;
 }
 
+
+/* 
 @media screen and (max-width: 768px){
     .contenedor .contenido {
         grid-column: 1 / -1;
@@ -79,4 +104,18 @@ body {
     .contenedor .widget-1 {
         grid-column: span 2;
     }
-} 
+}  */
+
+
+/* Responsive opcion 2 */
+
+@media screen and (max-width: 768px) {
+    .contenedor{
+        grid-template-areas: "header header header"
+                             "contenido contenido contenido"
+                             "sidebar sidebar sidebar"
+                             "widget-1 widget-2 widget-2"
+                             "footer footer footer"
+    }
+
+}
